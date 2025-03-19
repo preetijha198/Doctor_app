@@ -8,7 +8,15 @@ function BookAppointment() {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    api.get("/doctors").then((res) => setDoctors(res.data));
+    api.get("/doctors")
+      .then((res) => {
+        console.log("Doctors fetched:", res.data); // Debugging line
+        setDoctors(res.data);
+      })
+      .catch((err) => {
+        console.error("Error fetching doctors:", err);
+        alert("Failed to load doctors. Please check if JSON Server is running.");
+      });
   }, []);
 
   const handleBooking = () => {
@@ -30,15 +38,19 @@ function BookAppointment() {
   return (
     <div className="container">
       <h1>Book an Appointment</h1>
-      
+
       <label>Select Doctor:</label>
       <select value={selectedDoctor} onChange={(e) => setSelectedDoctor(e.target.value)}>
         <option value="">Select a doctor</option>
-        {doctors.map((doc) => (
-          <option key={doc.id} value={doc.name}>
-            {doc.name} - {doc.speciality}
-          </option>
-        ))}
+        {doctors.length > 0 ? (
+          doctors.map((doc) => (
+            <option key={doc.id} value={doc.name}>
+              {doc.name} - {doc.speciality}
+            </option>
+          ))
+        ) : (
+          <option disabled>Loading doctors...</option>
+        )}
       </select>
 
       <label>Select Date:</label>

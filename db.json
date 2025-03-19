@@ -1,41 +1,7 @@
 {
   "doctors": [
-    {
-      "id": "1",
-      "name": "Dr. Smith",
-      "speciality": "Cardiologist"
-    },
-    {
-      "id": "2",
-      "name": "Dr. Jane",
-      "speciality": "Dentist"
-    }
+    { "id": 1, "name": "Dr. Smith", "speciality": "Cardiologist" },
+    { "id": 2, "name": "Dr. Jane", "speciality": "Dentist" }
   ],
-  "appointments": [
-    {
-      "id": "8bbc",
-      "doctor": "Dr. Smith",
-      "date": "2025-03-18"
-    },
-    {
-      "id": "1740",
-      "doctor": "",
-      "date": ""
-    },
-    {
-      "id": "7ecd",
-      "doctor": "",
-      "date": ""
-    },
-    {
-      "id": "fb5c",
-      "doctor": "Dr. Smith",
-      "date": "11111-11-11"
-    },
-    {
-      "id": "ad87",
-      "doctor": "Dr. Jane",
-      "date": "2025-03-19"
-    }
-  ]
+  "appointments": []
 }
